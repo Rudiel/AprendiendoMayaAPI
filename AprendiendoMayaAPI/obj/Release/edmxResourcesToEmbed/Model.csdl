@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_A0FC7A_AprendiendoMayaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="ID_Categoria" />
+    </Key>
+    <Property Name="ID_Categoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NombreIngles" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Imagen" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+    <Property Name="Bloqueado" Type="Boolean" />
+    <Property Name="ID_Usuario" Type="Int64" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Categoria__ID_Us__182C9B23" FromRole="Categorias" ToRole="Usuarios" />
+    <NavigationProperty Name="Niveles" Relationship="Self.FK__Niveles__ID_Cate__1920BF5C" FromRole="Categorias" ToRole="Niveles" />
+    <NavigationProperty Name="Puntuaciones" Relationship="Self.FK__Puntuacio__ID_Ca__1B0907CE" FromRole="Categorias" ToRole="Puntuaciones" />
+  </EntityType>
+  <EntityType Name="Nivele">
+    <Key>
+      <PropertyRef Name="ID_Nivel" />
+    </Key>
+    <Property Name="ID_Nivel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nivel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Bloqueado" Type="Boolean" />
+    <Property Name="ID_Usuario" Type="Int64" />
+    <Property Name="ID_Categoria" Type="Int32" />
+    <NavigationProperty Name="Categoria" Relationship="Self.FK__Niveles__ID_Cate__1920BF5C" FromRole="Niveles" ToRole="Categorias" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Niveles__ID_Usua__1A14E395" FromRole="Niveles" ToRole="Usuarios" />
+    <NavigationProperty Name="Puntuaciones" Relationship="Self.FK__Puntuacio__ID_Ni__1BFD2C07" FromRole="Niveles" ToRole="Puntuaciones" />
+  </EntityType>
+  <EntityType Name="Palabra">
+    <Key>
+      <PropertyRef Name="ID_Palabra" />
+    </Key>
+    <Property Name="ID_Palabra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PalabraMaya" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PalabraEspanol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PalabraIngles" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Imagen" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+    <Property Name="Audio" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+    <Property Name="PalabraNueva" Type="Boolean" />
+    <Property Name="Categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Puntuacione">
+    <Key>
+      <PropertyRef Name="ID_Puntuacion" />
+    </Key>
+    <Property Name="ID_Puntuacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Puntuacion" Type="Int32" />
+    <Property Name="ID_Usuario" Type="Int64" />
+    <Property Name="ID_Categoria" Type="Int32" />
+    <Property Name="ID_Nivel" Type="Int32" />
+    <NavigationProperty Name="Categoria" Relationship="Self.FK__Puntuacio__ID_Ca__1B0907CE" FromRole="Puntuaciones" ToRole="Categorias" />
+    <NavigationProperty Name="Nivele" Relationship="Self.FK__Puntuacio__ID_Ni__1BFD2C07" FromRole="Puntuaciones" ToRole="Niveles" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Puntuacio__ID_Us__1CF15040" FromRole="Puntuaciones" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="ID_Usuario" />
+    </Key>
+    <Property Name="ID_Usuario" Type="Int64" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Imagen" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Categorias" Relationship="Self.FK__Categoria__ID_Us__182C9B23" FromRole="Usuarios" ToRole="Categorias" />
+    <NavigationProperty Name="Niveles" Relationship="Self.FK__Niveles__ID_Usua__1A14E395" FromRole="Usuarios" ToRole="Niveles" />
+    <NavigationProperty Name="Puntuaciones" Relationship="Self.FK__Puntuacio__ID_Us__1CF15040" FromRole="Usuarios" ToRole="Puntuaciones" />
+  </EntityType>
+  <Association Name="FK__Categoria__ID_Us__182C9B23">
+    <End Role="Usuarios" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Categorias" Type="Self.Categoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="ID_Usuario" />
+      </Principal>
+      <Dependent Role="Categorias">
+        <PropertyRef Name="ID_Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Niveles__ID_Cate__1920BF5C">
+    <End Role="Categorias" Type="Self.Categoria" Multiplicity="0..1" />
+    <End Role="Niveles" Type="Self.Nivele" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorias">
+        <PropertyRef Name="ID_Categoria" />
+      </Principal>
+      <Dependent Role="Niveles">
+        <PropertyRef Name="ID_Categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Puntuacio__ID_Ca__1B0907CE">
+    <End Role="Categorias" Type="Self.Categoria" Multiplicity="0..1" />
+    <End Role="Puntuaciones" Type="Self.Puntuacione" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorias">
+        <PropertyRef Name="ID_Categoria" />
+      </Principal>
+      <Dependent Role="Puntuaciones">
+        <PropertyRef Name="ID_Categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Niveles__ID_Usua__1A14E395">
+    <End Role="Usuarios" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Niveles" Type="Self.Nivele" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="ID_Usuario" />
+      </Principal>
+      <Dependent Role="Niveles">
+        <PropertyRef Name="ID_Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Puntuacio__ID_Ni__1BFD2C07">
+    <End Role="Niveles" Type="Self.Nivele" Multiplicity="0..1" />
+    <End Role="Puntuaciones" Type="Self.Puntuacione" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Niveles">
+        <PropertyRef Name="ID_Nivel" />
+      </Principal>
+      <Dependent Role="Puntuaciones">
+        <PropertyRef Name="ID_Nivel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Puntuacio__ID_Us__1CF15040">
+    <End Role="Usuarios" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Puntuaciones" Type="Self.Puntuacione" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="ID_Usuario" />
+      </Principal>
+      <Dependent Role="Puntuaciones">
+        <PropertyRef Name="ID_Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AprendiendoMayaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categorias" EntityType="Self.Categoria" />
+    <EntitySet Name="Niveles" EntityType="Self.Nivele" />
+    <EntitySet Name="Palabras" EntityType="Self.Palabra" />
+    <EntitySet Name="Puntuaciones" EntityType="Self.Puntuacione" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+    <AssociationSet Name="FK__Categoria__ID_Us__182C9B23" Association="Self.FK__Categoria__ID_Us__182C9B23">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Categorias" EntitySet="Categorias" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Niveles__ID_Cate__1920BF5C" Association="Self.FK__Niveles__ID_Cate__1920BF5C">
+      <End Role="Categorias" EntitySet="Categorias" />
+      <End Role="Niveles" EntitySet="Niveles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Puntuacio__ID_Ca__1B0907CE" Association="Self.FK__Puntuacio__ID_Ca__1B0907CE">
+      <End Role="Categorias" EntitySet="Categorias" />
+      <End Role="Puntuaciones" EntitySet="Puntuaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Niveles__ID_Usua__1A14E395" Association="Self.FK__Niveles__ID_Usua__1A14E395">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Niveles" EntitySet="Niveles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Puntuacio__ID_Ni__1BFD2C07" Association="Self.FK__Puntuacio__ID_Ni__1BFD2C07">
+      <End Role="Niveles" EntitySet="Niveles" />
+      <End Role="Puntuaciones" EntitySet="Puntuaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Puntuacio__ID_Us__1CF15040" Association="Self.FK__Puntuacio__ID_Us__1CF15040">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Puntuaciones" EntitySet="Puntuaciones" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_A0FC7A_AprendiendoMayaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Categorias">
+    <Key>
+      <PropertyRef Name="ID_Categoria" />
+    </Key>
+    <Property Name="ID_Categoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="NombreIngles" Type="varchar" MaxLength="50" />
+    <Property Name="Imagen" Type="varchar" MaxLength="90" />
+    <Property Name="Bloqueado" Type="bit" />
+    <Property Name="ID_Usuario" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Niveles">
+    <Key>
+      <PropertyRef Name="ID_Nivel" />
+    </Key>
+    <Property Name="ID_Nivel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nivel" Type="varchar" MaxLength="50" />
+    <Property Name="Bloqueado" Type="bit" />
+    <Property Name="ID_Usuario" Type="bigint" />
+    <Property Name="ID_Categoria" Type="int" />
+  </EntityType>
+  <EntityType Name="Palabras">
+    <Key>
+      <PropertyRef Name="ID_Palabra" />
+    </Key>
+    <Property Name="ID_Palabra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PalabraMaya" Type="varchar" MaxLength="50" />
+    <Property Name="PalabraEspanol" Type="varchar" MaxLength="50" />
+    <Property Name="PalabraIngles" Type="varchar" MaxLength="50" />
+    <Property Name="Imagen" Type="varchar" MaxLength="90" />
+    <Property Name="Audio" Type="varchar" MaxLength="90" />
+    <Property Name="PalabraNueva" Type="bit" />
+    <Property Name="Categoria" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Puntuaciones">
+    <Key>
+      <PropertyRef Name="ID_Puntuacion" />
+    </Key>
+    <Property Name="ID_Puntuacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Puntuacion" Type="int" />
+    <Property Name="ID_Usuario" Type="bigint" />
+    <Property Name="ID_Categoria" Type="int" />
+    <Property Name="ID_Nivel" Type="int" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="ID_Usuario" />
+    </Key>
+    <Property Name="ID_Usuario" Type="bigint" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Apellido" Type="varchar" MaxLength="50" />
+    <Property Name="Imagen" Type="varchar" MaxLength="90" />
+    <Property Name="Email" Type="varchar" MaxLength="70" />
+  </EntityType>
+  <Association Name="FK__Categoria__ID_Us__182C9B23">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Categorias" Type="Self.Categorias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="ID_Usuario" />
+      </Principal>
+      <Dependent Role="Categorias">
+        <PropertyRef Name="ID_Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Niveles__ID_Cate__1920BF5C">
+    <End Role="Categorias" Type="Self.Categorias" Multiplicity="0..1" />
+    <End Role="Niveles" Type="Self.Niveles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorias">
+        <PropertyRef Name="ID_Categoria" />
+      </Principal>
+      <Dependent Role="Niveles">
+        <PropertyRef Name="ID_Categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Niveles__ID_Usua__1A14E395">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Niveles" Type="Self.Niveles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="ID_Usuario" />
+      </Principal>
+      <Dependent Role="Niveles">
+        <PropertyRef Name="ID_Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Puntuacio__ID_Ca__1B0907CE">
+    <End Role="Categorias" Type="Self.Categorias" Multiplicity="0..1" />
+    <End Role="Puntuaciones" Type="Self.Puntuaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorias">
+        <PropertyRef Name="ID_Categoria" />
+      </Principal>
+      <Dependent Role="Puntuaciones">
+        <PropertyRef Name="ID_Categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Puntuacio__ID_Ni__1BFD2C07">
+    <End Role="Niveles" Type="Self.Niveles" Multiplicity="0..1" />
+    <End Role="Puntuaciones" Type="Self.Puntuaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Niveles">
+        <PropertyRef Name="ID_Nivel" />
+      </Principal>
+      <Dependent Role="Puntuaciones">
+        <PropertyRef Name="ID_Nivel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Puntuacio__ID_Us__1CF15040">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Puntuaciones" Type="Self.Puntuaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="ID_Usuario" />
+      </Principal>
+      <Dependent Role="Puntuaciones">
+        <PropertyRef Name="ID_Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DB_A0FC7A_AprendiendoMayaModelStoreContainer">
+    <EntitySet Name="Categorias" EntityType="Self.Categorias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Niveles" EntityType="Self.Niveles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Palabras" EntityType="Self.Palabras" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Puntuaciones" EntityType="Self.Puntuaciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Categoria__ID_Us__182C9B23" Association="Self.FK__Categoria__ID_Us__182C9B23">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Categorias" EntitySet="Categorias" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Niveles__ID_Cate__1920BF5C" Association="Self.FK__Niveles__ID_Cate__1920BF5C">
+      <End Role="Categorias" EntitySet="Categorias" />
+      <End Role="Niveles" EntitySet="Niveles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Niveles__ID_Usua__1A14E395" Association="Self.FK__Niveles__ID_Usua__1A14E395">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Niveles" EntitySet="Niveles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Puntuacio__ID_Ca__1B0907CE" Association="Self.FK__Puntuacio__ID_Ca__1B0907CE">
+      <End Role="Categorias" EntitySet="Categorias" />
+      <End Role="Puntuaciones" EntitySet="Puntuaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Puntuacio__ID_Ni__1BFD2C07" Association="Self.FK__Puntuacio__ID_Ni__1BFD2C07">
+      <End Role="Niveles" EntitySet="Niveles" />
+      <End Role="Puntuaciones" EntitySet="Puntuaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Puntuacio__ID_Us__1CF15040" Association="Self.FK__Puntuacio__ID_Us__1CF15040">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Puntuaciones" EntitySet="Puntuaciones" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

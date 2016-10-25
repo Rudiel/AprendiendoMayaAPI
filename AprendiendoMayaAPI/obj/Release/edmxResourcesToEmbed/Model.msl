@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_A0FC7A_AprendiendoMayaModelStoreContainer" CdmEntityContainer="AprendiendoMayaEntities">
+    <EntitySetMapping Name="Categorias">
+      <EntityTypeMapping TypeName="DB_A0FC7A_AprendiendoMayaModel.Categoria">
+        <MappingFragment StoreEntitySet="Categorias">
+          <ScalarProperty Name="ID_Categoria" ColumnName="ID_Categoria" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="NombreIngles" ColumnName="NombreIngles" />
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+          <ScalarProperty Name="Bloqueado" ColumnName="Bloqueado" />
+          <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Niveles">
+      <EntityTypeMapping TypeName="DB_A0FC7A_AprendiendoMayaModel.Nivele">
+        <MappingFragment StoreEntitySet="Niveles">
+          <ScalarProperty Name="ID_Nivel" ColumnName="ID_Nivel" />
+          <ScalarProperty Name="nivel" ColumnName="nivel" />
+          <ScalarProperty Name="Bloqueado" ColumnName="Bloqueado" />
+          <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+          <ScalarProperty Name="ID_Categoria" ColumnName="ID_Categoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Palabras">
+      <EntityTypeMapping TypeName="DB_A0FC7A_AprendiendoMayaModel.Palabra">
+        <MappingFragment StoreEntitySet="Palabras">
+          <ScalarProperty Name="ID_Palabra" ColumnName="ID_Palabra" />
+          <ScalarProperty Name="PalabraMaya" ColumnName="PalabraMaya" />
+          <ScalarProperty Name="PalabraEspanol" ColumnName="PalabraEspanol" />
+          <ScalarProperty Name="PalabraIngles" ColumnName="PalabraIngles" />
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+          <ScalarProperty Name="Audio" ColumnName="Audio" />
+          <ScalarProperty Name="PalabraNueva" ColumnName="PalabraNueva" />
+          <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Puntuaciones">
+      <EntityTypeMapping TypeName="DB_A0FC7A_AprendiendoMayaModel.Puntuacione">
+        <MappingFragment StoreEntitySet="Puntuaciones">
+          <ScalarProperty Name="ID_Puntuacion" ColumnName="ID_Puntuacion" />
+          <ScalarProperty Name="Puntuacion" ColumnName="Puntuacion" />
+          <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+          <ScalarProperty Name="ID_Categoria" ColumnName="ID_Categoria" />
+          <ScalarProperty Name="ID_Nivel" ColumnName="ID_Nivel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="DB_A0FC7A_AprendiendoMayaModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
