@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DB_A0FC7A_AprendiendoMayaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DB_A0FC7A_AprendiendoMayaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categorias">
           <Key>
             <PropertyRef Name="ID_Categoria" />
@@ -12,7 +12,7 @@
           <Property Name="ID_Categoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="varchar" MaxLength="50" />
           <Property Name="NombreIngles" Type="varchar" MaxLength="50" />
-          <Property Name="Imagen" Type="varchar" MaxLength="90" />
+          <Property Name="Imagen" Type="varchar" MaxLength="200" />
           <Property Name="Bloqueado" Type="bit" />
           <Property Name="ID_Usuario" Type="bigint" />
         </EntityType>
@@ -56,7 +56,7 @@
           <Property Name="ID_Usuario" Type="bigint" Nullable="false" />
           <Property Name="Nombre" Type="varchar" MaxLength="50" />
           <Property Name="Apellido" Type="varchar" MaxLength="50" />
-          <Property Name="Imagen" Type="varchar" MaxLength="90" />
+          <Property Name="Imagen" Type="varchar" MaxLength="200" />
           <Property Name="Email" Type="varchar" MaxLength="70" />
         </EntityType>
         <Association Name="FK__Categoria__ID_Us__182C9B23">
@@ -162,8 +162,7 @@
             <End Role="Puntuaciones" EntitySet="Puntuaciones" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DB_A0FC7A_AprendiendoMayaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -174,7 +173,7 @@
           <Property Name="ID_Categoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="NombreIngles" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Imagen" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+          <Property Name="Imagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Bloqueado" Type="Boolean" />
           <Property Name="ID_Usuario" Type="Int64" />
           <NavigationProperty Name="Usuario" Relationship="Self.FK__Categoria__ID_Us__182C9B23" FromRole="Categorias" ToRole="Usuarios" />
@@ -227,7 +226,7 @@
           <Property Name="ID_Usuario" Type="Int64" Nullable="false" />
           <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Imagen" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+          <Property Name="Imagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Categorias" Relationship="Self.FK__Categoria__ID_Us__182C9B23" FromRole="Usuarios" ToRole="Categorias" />
           <NavigationProperty Name="Niveles" Relationship="Self.FK__Niveles__ID_Usua__1A14E395" FromRole="Usuarios" ToRole="Niveles" />

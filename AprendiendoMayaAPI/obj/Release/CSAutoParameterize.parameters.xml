@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\v11.0;AttachDbFilename=|DataDirectory|\aspnet-AprendiendoMayaAPI-20161024051844.mdf;Initial Catalog=aspnet-AprendiendoMayaAPI-20161024051844;Integrated Security=True" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="c:\\users\\nahim\\documents\\visual\ studio\ 2013\\Projects\\AprendiendoMayaAPI\\AprendiendoMayaAPI\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Nahim\\Documents\\AprendiendoMayaAPI\\AprendiendoMayaAPI\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
   </parameter>
   <parameter name="AprendiendoMayaEntities-Web.config Connection String" description="AprendiendoMayaEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Model.csdl|res://*/Model.ssdl|res://*/Model.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=sql5026.smarterasp.net;persist security info=True;user id=DB_A0FC7A_AprendiendoMaya_admin;password=Naruma07;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="c:\\users\\nahim\\documents\\visual\ studio\ 2013\\Projects\\AprendiendoMayaAPI\\AprendiendoMayaAPI\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AprendiendoMayaEntities']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Nahim\\Documents\\AprendiendoMayaAPI\\AprendiendoMayaAPI\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AprendiendoMayaEntities']/@connectionString" />
   </parameter>
 </parameters>

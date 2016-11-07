@@ -7,7 +7,7 @@
     <Property Name="ID_Categoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nombre" Type="varchar" MaxLength="50" />
     <Property Name="NombreIngles" Type="varchar" MaxLength="50" />
-    <Property Name="Imagen" Type="varchar" MaxLength="90" />
+    <Property Name="Imagen" Type="varchar" MaxLength="200" />
     <Property Name="Bloqueado" Type="bit" />
     <Property Name="ID_Usuario" Type="bigint" />
   </EntityType>
@@ -51,7 +51,7 @@
     <Property Name="ID_Usuario" Type="bigint" Nullable="false" />
     <Property Name="Nombre" Type="varchar" MaxLength="50" />
     <Property Name="Apellido" Type="varchar" MaxLength="50" />
-    <Property Name="Imagen" Type="varchar" MaxLength="90" />
+    <Property Name="Imagen" Type="varchar" MaxLength="200" />
     <Property Name="Email" Type="varchar" MaxLength="70" />
   </EntityType>
   <Association Name="FK__Categoria__ID_Us__182C9B23">

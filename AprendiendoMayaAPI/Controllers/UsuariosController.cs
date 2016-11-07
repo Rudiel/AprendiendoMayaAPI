@@ -159,7 +159,7 @@ namespace AprendiendoMayaAPI.Controllers
             }
             catch (Exception e)
             {
-                return Request.CreateResponse(HttpStatusCode.NotFound, "Ocurrió un errro. Intente Nuevamente");
+                return Request.CreateResponse(HttpStatusCode.NotFound, "Ocurrió un error. Intente Nuevamente");
 
             }
 

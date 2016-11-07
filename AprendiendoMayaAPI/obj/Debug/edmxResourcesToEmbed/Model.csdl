@@ -7,7 +7,7 @@
     <Property Name="ID_Categoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="NombreIngles" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Imagen" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+    <Property Name="Imagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="Bloqueado" Type="Boolean" />
     <Property Name="ID_Usuario" Type="Int64" />
     <NavigationProperty Name="Usuario" Relationship="Self.FK__Categoria__ID_Us__182C9B23" FromRole="Categorias" ToRole="Usuarios" />
@@ -60,7 +60,7 @@
     <Property Name="ID_Usuario" Type="Int64" Nullable="false" />
     <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Imagen" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+    <Property Name="Imagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="Email" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Categorias" Relationship="Self.FK__Categoria__ID_Us__182C9B23" FromRole="Usuarios" ToRole="Categorias" />
     <NavigationProperty Name="Niveles" Relationship="Self.FK__Niveles__ID_Usua__1A14E395" FromRole="Usuarios" ToRole="Niveles" />
