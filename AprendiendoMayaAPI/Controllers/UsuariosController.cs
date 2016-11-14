@@ -76,7 +76,7 @@ namespace AprendiendoMayaAPI.Controllers
             Usuario repetido = db.Usuarios.Where(e => e.ID_Usuario == usuario.ID_Usuario).FirstOrDefault();
 
             if (repetido != null)
-                return Request.CreateResponse(HttpStatusCode.NotFound, "Usuario Repetido");
+                return Request.CreateResponse(HttpStatusCode.OK, "Usuario Repetido");
 
             if (!ModelState.IsValid)
                 return Request.CreateResponse(HttpStatusCode.NotFound, "Bad Request");
@@ -189,7 +189,7 @@ namespace AprendiendoMayaAPI.Controllers
             }
             catch (Exception e)
             {
-                return Request.CreateResponse(HttpStatusCode.NotFound, "Ocurrió un errro. Intente Nuevamente");
+                return Request.CreateResponse(HttpStatusCode.NotFound, "Ocurrió un error. Intente Nuevamente");
 
             }
 
@@ -211,7 +211,7 @@ namespace AprendiendoMayaAPI.Controllers
             }
             catch (Exception e)
             {
-                return Request.CreateResponse(HttpStatusCode.NotFound, "Ocurrió un errro. Intente Nuevamente");
+                return Request.CreateResponse(HttpStatusCode.NotFound, "Ocurrió un error. Intente Nuevamente");
 
             }
 
