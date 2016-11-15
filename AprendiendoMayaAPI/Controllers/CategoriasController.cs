@@ -37,6 +37,7 @@ namespace AprendiendoMayaAPI.Controllers
                 model.Nombre = c.Nombre;
                 model.NombreIngles = c.NombreIngles;
                 model.Imagen = c.Imagen;
+                model.Bloqueado = c.Bloqueado.Value;
 
                 modelCategorias.Add(model);
             }

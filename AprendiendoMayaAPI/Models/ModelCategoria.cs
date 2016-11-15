@@ -12,5 +12,8 @@ namespace AprendiendoMayaAPI.Models
         public String NombreIngles { get; set; }
         public String Imagen { get; set; }
         public long ID_Usuario { get; set; }
+
+        public Boolean Bloqueado { get; set; }
+
     }
 }
