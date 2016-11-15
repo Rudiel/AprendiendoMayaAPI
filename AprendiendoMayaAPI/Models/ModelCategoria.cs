@@ -15,5 +15,7 @@ namespace AprendiendoMayaAPI.Models
 
         public Boolean Bloqueado { get; set; }
 
+        public int Puntuacion { get; set; }
+
     }
 }

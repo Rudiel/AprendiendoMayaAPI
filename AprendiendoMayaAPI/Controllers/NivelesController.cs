@@ -16,6 +16,7 @@ namespace AprendiendoMayaAPI.Controllers
     public class NivelesController : ApiController
     {
         private AprendiendoMayaEntities db = new AprendiendoMayaEntities();
+        private int puntuacion;
 
         // GET: api/Niveles
         public IQueryable<Nivele> GetNiveles()
@@ -40,20 +41,22 @@ namespace AprendiendoMayaAPI.Controllers
         {
 
             Categoria cate = db.Categorias.Where(e => e.Nombre.Equals(categoria) && e.ID_Usuario == usuario).FirstOrDefault();
+          
 
             if (cate == null)
                 return Request.CreateResponse(HttpStatusCode.NotFound, "No existen niveles con esa categoria");
 
+            List<Puntuacione> listPuntuaciones = db.Puntuaciones.Where(e => e.ID_Usuario == usuario && e.ID_Categoria==cate.ID_Categoria ).ToList();
             List<Nivele> niveles = db.Niveles.Where(e => e.ID_Usuario == usuario && e.ID_Categoria == cate.ID_Categoria).ToList();
-
             List<ModelNivel> modelNiveles = new List<ModelNivel>();
 
             foreach (Nivele n in niveles)
             {
+                puntuacion = 0;
                 ModelNivel modelNivel = new ModelNivel();
                 modelNivel.Bloqueado = n.Bloqueado.Value;
                 modelNivel.Nombre = n.nivel;
-
+                modelNivel.PuntuacionMaxima = db.Puntuaciones.Where(e=> e.ID_Nivel== n.ID_Nivel).First().Puntuacion.Value;
 
                 modelNiveles.Add(modelNivel);
             }

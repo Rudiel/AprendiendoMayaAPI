@@ -16,6 +16,7 @@ namespace AprendiendoMayaAPI.Controllers
     public class CategoriasController : ApiController
     {
         private AprendiendoMayaEntities db = new AprendiendoMayaEntities();
+        private int puntuacion;
 
         // GET: api/Categorias
         public IQueryable<Categoria> GetCategorias()
@@ -39,6 +40,15 @@ namespace AprendiendoMayaAPI.Controllers
                 model.Imagen = c.Imagen;
                 model.Bloqueado = c.Bloqueado.Value;
 
+                List<Puntuacione> puntuaciones = db.Puntuaciones.Where(e => e.ID_Usuario == id && e.ID_Categoria==c.ID_Categoria).ToList();
+                puntuacion = 0;
+
+                foreach (Puntuacione p in puntuaciones) {
+                    puntuacion += p.Puntuacion.Value;
+                }
+
+                model.Puntuacion = puntuacion;
+              
                 modelCategorias.Add(model);
             }
 
