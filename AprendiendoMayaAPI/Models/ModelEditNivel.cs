@@ -5,11 +5,10 @@ using System.Web;
 
 namespace AprendiendoMayaAPI.Models
 {
-    public class ModelNivel
+    public class ModelEditNivel
     {
-        public String Nombre { get; set; }
-        public Boolean Bloqueado { get; set; }
-        public int PuntuacionMaxima { get; set; }
+        public long ID_Usuario { get; set; }
         public int ID_Nivel { get; set; }
+        public int Puntuacion { get; set; }
     }
 }

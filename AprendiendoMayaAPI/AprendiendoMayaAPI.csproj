@@ -231,6 +231,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ModelCategoria.cs" />
+    <Compile Include="Models\ModelEditNivel.cs" />
     <Compile Include="Models\ModelNivel.cs" />
     <Compile Include="Models\ModelPalabra.cs" />
     <Compile Include="Nivele.cs">

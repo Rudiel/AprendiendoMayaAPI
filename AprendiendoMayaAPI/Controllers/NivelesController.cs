@@ -54,6 +54,7 @@ namespace AprendiendoMayaAPI.Controllers
             {
                 puntuacion = 0;
                 ModelNivel modelNivel = new ModelNivel();
+                modelNivel.ID_Nivel = n.ID_Nivel;
                 modelNivel.Bloqueado = n.Bloqueado.Value;
                 modelNivel.Nombre = n.nivel;
                 modelNivel.PuntuacionMaxima = db.Puntuaciones.Where(e=> e.ID_Nivel== n.ID_Nivel).First().Puntuacion.Value;
@@ -99,19 +100,20 @@ namespace AprendiendoMayaAPI.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Niveles
-        [ResponseType(typeof(Nivele))]
-        public IHttpActionResult PostNivele(Nivele nivele)
+     
+
+        public HttpResponseMessage PostNivele(ModelEditNivel nivel)
         {
-            if (!ModelState.IsValid)
+            Puntuacione puntuacion = db.Puntuaciones.Where(e=> e.ID_Nivel== nivel.ID_Nivel && e.ID_Usuario== nivel.ID_Usuario).First();
+            puntuacion.Puntuacion = nivel.Puntuacion;
+            try
             {
-                return BadRequest(ModelState);
+                db.SaveChanges();
             }
-
-            db.Niveles.Add(nivele);
-            db.SaveChanges();
-
-            return CreatedAtRoute("DefaultApi", new { id = nivele.ID_Nivel }, nivele);
+            catch (Exception e) {
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound,"Hubo un problema el guardar la puntuacion");
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, "Puntuacion guardada con éxito");
         }
 
         // DELETE: api/Niveles/5
