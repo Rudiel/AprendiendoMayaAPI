@@ -126,7 +126,7 @@ namespace AprendiendoMayaAPI.Controllers
             //Body parts
             Categoria partes = new Categoria();
             partes.ID_Usuario = usuario.ID_Usuario;
-            partes.Imagen = "";
+            partes.Imagen = "http://narumasolutions-001-site1.dtempurl.com/Imagenes/Categorias/partesCuerpo.png";
             partes.NombreIngles = "Body Parts";
             partes.Nombre = "Partes del Cuerpo";
             partes.Bloqueado = true;
@@ -136,17 +136,17 @@ namespace AprendiendoMayaAPI.Controllers
             //Family
             Categoria familia = new Categoria();
             familia.ID_Usuario = usuario.ID_Usuario;
-            familia.Imagen = "";
+            familia.Imagen = "http://narumasolutions-001-site1.dtempurl.com/Imagenes/Categorias/familia.png";
             familia.NombreIngles = "Family";
             familia.Nombre = "Familia";
             familia.Bloqueado = true;
 
             db.Categorias.Add(familia);
 
-            //Family
+            //Frases
             Categoria frases = new Categoria();
             frases.ID_Usuario = usuario.ID_Usuario;
-            frases.Imagen = "";
+            frases.Imagen = "http://narumasolutions-001-site1.dtempurl.com/Imagenes/Categorias/frases.png";
             frases.NombreIngles = "Common Phrases";
             frases.Nombre = "Frases Comunes";
             frases.Bloqueado = true;
@@ -171,7 +171,7 @@ namespace AprendiendoMayaAPI.Controllers
                 for (int j = 0; j < 3; j++)
                 {
                     Nivele nivel = new Nivele();
-                    if (j == 0)
+                    if (j > 2)
                         nivel.Bloqueado = false;
                     else
                         nivel.Bloqueado = true;
