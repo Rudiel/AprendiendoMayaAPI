@@ -25,6 +25,7 @@ namespace AprendiendoMayaAPI
         public Nullable<bool> Bloqueado { get; set; }
         public Nullable<long> ID_Usuario { get; set; }
         public Nullable<int> ID_Categoria { get; set; }
+        public string Imagen { get; set; }
     
         public virtual Categoria Categoria { get; set; }
         public virtual Usuario Usuario { get; set; }

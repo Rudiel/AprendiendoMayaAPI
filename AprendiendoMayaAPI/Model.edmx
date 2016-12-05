@@ -25,6 +25,7 @@
           <Property Name="Bloqueado" Type="bit" />
           <Property Name="ID_Usuario" Type="bigint" />
           <Property Name="ID_Categoria" Type="int" />
+          <Property Name="Imagen" Type="varchar" MaxLength="90" />
         </EntityType>
         <EntityType Name="Palabras">
           <Key>
@@ -192,6 +193,7 @@
           <NavigationProperty Name="Categoria" Relationship="Self.FK__Niveles__ID_Cate__1920BF5C" FromRole="Niveles" ToRole="Categorias" />
           <NavigationProperty Name="Usuario" Relationship="Self.FK__Niveles__ID_Usua__1A14E395" FromRole="Niveles" ToRole="Usuarios" />
           <NavigationProperty Name="Puntuaciones" Relationship="Self.FK__Puntuacio__ID_Ni__1BFD2C07" FromRole="Niveles" ToRole="Puntuaciones" />
+          <Property Name="Imagen" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Palabra">
           <Key>
@@ -356,6 +358,7 @@
           <EntitySetMapping Name="Niveles">
             <EntityTypeMapping TypeName="DB_A0FC7A_AprendiendoMayaModel.Nivele">
               <MappingFragment StoreEntitySet="Niveles">
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
                 <ScalarProperty Name="ID_Nivel" ColumnName="ID_Nivel" />
                 <ScalarProperty Name="nivel" ColumnName="nivel" />
                 <ScalarProperty Name="Bloqueado" ColumnName="Bloqueado" />

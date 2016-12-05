@@ -58,7 +58,7 @@ namespace AprendiendoMayaAPI.Controllers
                 modelNivel.Bloqueado = n.Bloqueado.Value;
                 modelNivel.Nombre = n.nivel;
                 modelNivel.PuntuacionMaxima = db.Puntuaciones.Where(e=> e.ID_Nivel== n.ID_Nivel).First().Puntuacion.Value;
-
+                modelNivel.Imagen = n.Imagen;
                 modelNiveles.Add(modelNivel);
             }
 

@@ -20,6 +20,7 @@
     <Property Name="Bloqueado" Type="bit" />
     <Property Name="ID_Usuario" Type="bigint" />
     <Property Name="ID_Categoria" Type="int" />
+    <Property Name="Imagen" Type="varchar" MaxLength="90" />
   </EntityType>
   <EntityType Name="Palabras">
     <Key>

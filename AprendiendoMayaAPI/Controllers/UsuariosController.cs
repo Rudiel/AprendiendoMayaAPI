@@ -86,7 +86,7 @@ namespace AprendiendoMayaAPI.Controllers
             //Colores
             Categoria color = new Categoria();
             color.ID_Usuario = usuario.ID_Usuario;
-            color.Imagen = "http://narumasolutions-001-site1.dtempurl.com/Imagenes/Categorias/colores.png";
+            color.Imagen = "http://narumasolutions-001-site1.dtempurl.com/Imagenes/Categorias/frutas.png";
             color.Nombre = "Colores";
             color.NombreIngles = "Colors";
             color.Bloqueado = false;
@@ -96,7 +96,7 @@ namespace AprendiendoMayaAPI.Controllers
             //Frutas 
             Categoria fruta = new Categoria();
             fruta.ID_Usuario = usuario.ID_Usuario;
-            fruta.Imagen = "http://narumasolutions-001-site1.dtempurl.com/Imagenes/Categorias/mango.png";
+            fruta.Imagen = "http://narumasolutions-001-site1.dtempurl.com/Imagenes/Categorias/frutas.png";
             fruta.NombreIngles = "Fruits";
             fruta.Nombre = "Frutas";
             fruta.Bloqueado = false;
@@ -106,7 +106,7 @@ namespace AprendiendoMayaAPI.Controllers
             //Animales
             Categoria animal = new Categoria();
             animal.ID_Usuario = usuario.ID_Usuario;
-            animal.Imagen = "http://narumasolutions-001-site1.dtempurl.com/Imagenes/Categorias/jabali.png";
+            animal.Imagen = "http://narumasolutions-001-site1.dtempurl.com/Imagenes/Categorias/animales.png";
             animal.NombreIngles = "Animals";
             animal.Nombre = "Animales";
             animal.Bloqueado = false;
@@ -116,7 +116,7 @@ namespace AprendiendoMayaAPI.Controllers
             //Numeros
             Categoria numero = new Categoria();
             numero.ID_Usuario = usuario.ID_Usuario;
-            numero.Imagen = "http://narumasolutions-001-site1.dtempurl.com/Imagenes/Categorias/0.png";
+            numero.Imagen = "http://narumasolutions-001-site1.dtempurl.com/Imagenes/Categorias/numeros.png";
             numero.NombreIngles = "Numbers";
             numero.Nombre = "Numeros";
             numero.Bloqueado = false;
@@ -171,10 +171,24 @@ namespace AprendiendoMayaAPI.Controllers
                 for (int j = 0; j < 3; j++)
                 {
                     Nivele nivel = new Nivele();
-                    if (j > 2)
+
+                    if (j <= 1 )
                         nivel.Bloqueado = false;
                     else
                         nivel.Bloqueado = true;
+
+                    switch (j) { 
+                        case 0:
+                            nivel.Imagen = "http://narumasolutions-001-site1.dtempurl.com/Imagenes/Niveles/LeeYElige.png";
+                            break;
+                        case 1:
+                            nivel.Imagen = "http://narumasolutions-001-site1.dtempurl.com/Imagenes/Niveles/MiraYEscribe.png";
+                            break;
+                        case 2:
+                            nivel.Imagen = "http://narumasolutions-001-site1.dtempurl.com/Imagenes/Niveles/EscuchaYElige.png";
+                            break;
+                    }
+
                     nivel.ID_Categoria = categorias.ElementAt(i).ID_Categoria;
                     nivel.ID_Usuario = usuario.ID_Usuario;
                     nivel.nivel = "Nivel " + (j + 1);

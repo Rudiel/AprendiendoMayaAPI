@@ -16,6 +16,7 @@
     <EntitySetMapping Name="Niveles">
       <EntityTypeMapping TypeName="DB_A0FC7A_AprendiendoMayaModel.Nivele">
         <MappingFragment StoreEntitySet="Niveles">
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
           <ScalarProperty Name="ID_Nivel" ColumnName="ID_Nivel" />
           <ScalarProperty Name="nivel" ColumnName="nivel" />
           <ScalarProperty Name="Bloqueado" ColumnName="Bloqueado" />

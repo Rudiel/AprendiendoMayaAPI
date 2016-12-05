@@ -11,5 +11,7 @@ namespace AprendiendoMayaAPI.Models
         public Boolean Bloqueado { get; set; }
         public int PuntuacionMaxima { get; set; }
         public int ID_Nivel { get; set; }
+
+        public String Imagen { get; set; }
     }
 }
