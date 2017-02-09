@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using AprendiendoMayaAPI;
+using AprendiendoMayaAPI.Models;
 
 namespace AprendiendoMayaAPI.Controllers
 {
@@ -17,9 +18,27 @@ namespace AprendiendoMayaAPI.Controllers
         private AprendiendoMayaEntities db = new AprendiendoMayaEntities();
 
         // GET: api/Puntuaciones
-        public IQueryable<Puntuacione> GetPuntuaciones()
+        public HttpResponseMessage GetPuntuaciones()
         {
-            return db.Puntuaciones;
+            List<ModelPuntMax> puntmaxList = new List<ModelPuntMax>();
+            List<Usuario> users = db.Usuarios.ToList();
+            foreach (Usuario u in users)
+            {
+                List<Puntuacione> puntuaciones = db.Puntuaciones.Where(p => p.Usuario.ID_Usuario == u.ID_Usuario).ToList();
+                int PuntuacionMaxima = 0;
+
+                foreach (Puntuacione puntos in puntuaciones) {
+                    PuntuacionMaxima += puntos.Puntuacion.Value;
+                }
+
+                ModelPuntMax puntMax = new ModelPuntMax();
+                puntMax.Nombre = u.Nombre + " " + u.Apellido ;
+                puntMax.Puntuacion = PuntuacionMaxima;
+
+                puntmaxList.Add(puntMax);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, puntmaxList.OrderByDescending(p=> p.Puntuacion).Take(10));
         }
 
         // GET: api/Puntuaciones/5
@@ -84,6 +103,7 @@ namespace AprendiendoMayaAPI.Controllers
 
             return CreatedAtRoute("DefaultApi", new { id = puntuacione.ID_Puntuacion }, puntuacione);
         }
+
 
         // DELETE: api/Puntuaciones/5
         [ResponseType(typeof(Puntuacione))]

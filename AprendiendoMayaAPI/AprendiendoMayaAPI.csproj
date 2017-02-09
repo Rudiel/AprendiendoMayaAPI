@@ -234,6 +234,7 @@
     <Compile Include="Models\ModelEditNivel.cs" />
     <Compile Include="Models\ModelNivel.cs" />
     <Compile Include="Models\ModelPalabra.cs" />
+    <Compile Include="Models\ModelPuntMax.cs" />
     <Compile Include="Nivele.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

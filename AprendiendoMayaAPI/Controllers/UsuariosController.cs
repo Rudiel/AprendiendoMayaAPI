@@ -82,11 +82,20 @@ namespace AprendiendoMayaAPI.Controllers
                 return Request.CreateResponse(HttpStatusCode.NotFound, "Bad Request");
 
             db.Usuarios.Add(usuario);
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, "Ocurrió un error. Intente Nuevamente");
+
+            }
 
             //Colores
             Categoria color = new Categoria();
             color.ID_Usuario = usuario.ID_Usuario;
-            color.Imagen = "http://narumasolutions-001-site1.dtempurl.com/Imagenes/Categorias/frutas.png";
+            color.Imagen = "http://narumasolutions-001-site1.dtempurl.com/Imagenes/Categorias/colores.png";
             color.Nombre = "Colores";
             color.NombreIngles = "Colors";
             color.Bloqueado = false;

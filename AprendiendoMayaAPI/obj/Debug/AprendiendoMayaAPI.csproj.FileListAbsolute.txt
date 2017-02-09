@@ -121,6 +121,6 @@ C:\Users\Nahim\Documents\AprendiendoMayaAPI\AprendiendoMayaAPI\bin\Microsoft.Owi
 C:\Users\Nahim\Documents\AprendiendoMayaAPI\AprendiendoMayaAPI\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Nahim\Documents\AprendiendoMayaAPI\AprendiendoMayaAPI\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Nahim\Documents\AprendiendoMayaAPI\AprendiendoMayaAPI\bin\System.Web.Http.Owin.xml
-C:\Users\Nahim\Documents\AprendiendoMayaAPI\AprendiendoMayaAPI\obj\Debug\AprendiendoMayaAPI.csprojResolveAssemblyReference.cache
 C:\Users\Nahim\Documents\AprendiendoMayaAPI\AprendiendoMayaAPI\obj\Debug\AprendiendoMayaAPI.dll
 C:\Users\Nahim\Documents\AprendiendoMayaAPI\AprendiendoMayaAPI\obj\Debug\AprendiendoMayaAPI.pdb
+C:\Users\Nahim\Documents\AprendiendoMayaAPI\AprendiendoMayaAPI\obj\Debug\AprendiendoMayaAPI.csprojResolveAssemblyReference.cache

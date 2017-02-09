@@ -55,6 +55,20 @@ namespace AprendiendoMayaAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, modelCategorias);
         }
 
+        [Route("api/Categorias/Desbloquear/{UserID}/{CategoriaID}")]
+        [HttpGet]
+        public HttpResponseMessage Desbloquear(long UserID, int CategoriaID)
+        {
+
+            Categoria cate = db.Categorias.Where(c => c.ID_Usuario == UserID && c.ID_Categoria == CategoriaID).FirstOrDefault();
+
+            cate.Bloqueado = false;
+
+            db.SaveChanges();
+
+            return Request.CreateResponse(HttpStatusCode.OK, "Se ha desbloqueado la Categoria"+ "  " + cate.Nombre );
+        }
+
         // PUT: api/Categorias/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutCategoria(int id, Categoria categoria)
